@@ -18,17 +18,17 @@
 
 :root.theme-dark {
   color-scheme: dark;
-  --bg: #0b1220;
-  --bg-2: #10172a;
-  --ink: #e5e7eb;
-  --muted: #9ca3af;
-  --accent: #93c5fd;
-  --accent-2: #fbbf24;
-  --accent-3: #34d399;
-  --card: rgba(20, 26, 40, 0.94);
-  --surface: rgba(26, 34, 50, 0.96);
-  --border: rgba(226, 232, 240, 0.15);
-  --shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+  --bg: #0b0f12;
+  --bg-2: #0f1620;
+  --ink: #f7f9fb;
+  --muted: #cbd5e1;
+  --accent: #22d3ee;  /* cyan for strong contrast */
+  --accent-2: #fbbf24; /* amber */
+  --accent-3: #f472b6; /* pink */
+  --card: rgba(16, 20, 28, 0.95);
+  --surface: rgba(22, 28, 40, 0.96);
+  --border: rgba(247, 249, 251, 0.18);
+  --shadow: 0 30px 70px rgba(0, 0, 0, 0.55);
 }
 
 * {

@@ -99,7 +99,7 @@
 }
 
 :root.theme-dark .card {
-  background: linear-gradient(135deg, #0b0f1a 0%, #1c2a4a 55%, #3b2f5a 100%);
+  background: linear-gradient(135deg, #0f172a 0%, #0e7490 60%, #0ea5e9 100%);
   color: #f8fbff;
 }
 
@@ -142,15 +142,15 @@
 }
 
 :root.theme-dark .digit {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.14);
 }
 
 :root.theme-dark .digit--double {
-  background: rgba(255, 123, 92, 0.42);
+  background: rgba(34, 211, 238, 0.5);
 }
 
 :root.theme-dark .digit--spotlight {
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.55);
+  box-shadow: 0 0 0 2px rgba(34, 211, 238, 0.7);
 }
 
 .digit__spacer {
@@ -295,15 +295,15 @@
 }
 
 :root.theme-dark .steps__note {
-  background: rgba(255, 255, 255, 0.06);
-  color: #e5e7eb;
-  border-left-color: #a5b4fc;
+  background: rgba(15, 23, 42, 0.9);
+  color: #e0f2fe;
+  border-left-color: var(--accent);
 }
 
 :root.theme-dark .steps__note--muted {
-  background: rgba(255, 255, 255, 0.06);
-  color: #fef3c7;
-  border-left-color: #fbbf24;
+  background: rgba(24, 16, 6, 0.75);
+  color: #fde68a;
+  border-left-color: var(--accent-2);
 }
 
 .tutorial {
@@ -379,9 +379,9 @@
 }
 
 :root.theme-dark .chip.active {
-  background: rgba(79, 70, 229, 0.3);
-  border-color: rgba(165, 180, 252, 0.9);
-  color: #e5e7eb;
+  background: rgba(34, 211, 238, 0.26);
+  border-color: rgba(34, 211, 238, 0.85);
+  color: #0b1727;
 }
 
 .table__head,
@@ -426,13 +426,13 @@
 }
 
 :root.theme-dark .table__row .pill {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
   color: #e5e7eb;
 }
 
 :root.theme-dark .table__row .pill--active {
-  background: rgba(165, 180, 252, 0.28);
-  color: #0f172a;
+  background: rgba(34, 211, 238, 0.26);
+  color: #0b1727;
 }
 
 .table__row:hover {
@@ -445,11 +445,11 @@
 }
 
 :root.theme-dark .table__row:hover {
-  background: rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.06);
 }
 
 :root.theme-dark .table__row--spotlight {
-  background: rgba(165, 180, 252, 0.22);
+  background: rgba(34, 211, 238, 0.22);
 }
 
 .table__row:last-child {
