@@ -57,8 +57,16 @@ export class AppComponent {
 
   isValid = computed(() => {
     const digits = this.digits();
-    if (digits.length < 12) return false;
+    if (digits.length < 12 || digits.length > 19) return false;
     return this.total() % 10 === 0;
+  });
+
+  lengthStatus = computed(() => {
+    const len = this.digits().length;
+    if (len === 0) return 'Нет цифр';
+    if (len < 12) return 'Слишком короткий';
+    if (len > 19) return 'Слишком длинный';
+    return 'Длина допустима';
   });
 
   checkDigit = computed(() => {
