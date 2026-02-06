@@ -164,6 +164,20 @@ export class AppComponent {
     effect(() => {
       const isDark = this.theme() === 'dark';
       document.documentElement.classList.toggle('theme-dark', isDark);
+      try {
+        localStorage.setItem('theme', this.theme());
+      } catch {
+        // ignore storage errors
+      }
     });
+
+    try {
+      const saved = localStorage.getItem('theme');
+      if (saved === 'dark' || saved === 'light') {
+        this.theme.set(saved);
+      }
+    } catch {
+      // ignore storage errors
+    }
   }
 }

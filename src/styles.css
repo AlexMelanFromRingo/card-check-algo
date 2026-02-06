@@ -39,6 +39,7 @@ body {
     linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
   color: var(--ink);
   min-height: 100vh;
+  transition: background 0.4s ease, color 0.4s ease;
 }
 
 body::before,
