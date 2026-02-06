@@ -15,7 +15,15 @@
     <div class="hero__card">
       <div class="card">
         <div class="card__chip"></div>
-        <div class="card__number">{{ formatted() || '0000 0000 0000 0000' }}</div>
+        <div class="card__number card__number--digits">
+          <ng-container *ngIf="digits().length > 0; else emptyDigits">
+            <ng-container *ngFor="let step of luhnSteps(); index as idx">
+              <span class="digit" [class.digit--double]="step.doubled">{{ step.digit }}</span>
+              <span class="digit__spacer" *ngIf="(idx + 1) % 4 === 0"> </span>
+            </ng-container>
+          </ng-container>
+          <ng-template #emptyDigits>0000 0000 0000 0000</ng-template>
+        </div>
         <div class="card__meta">
           <span>VALIDITY</span>
           <strong>{{ isValid() ? 'VALID' : 'CHECK' }}</strong>
@@ -86,6 +94,22 @@
     </div>
   </section>
 
+  <section class="tutorial">
+    <h2>Учебный режим</h2>
+    <p class="tutorial__lead">Прокликайте шаги, чтобы по очереди разобрать процесс.</p>
+    <div class="tutorial__card">
+      <div class="tutorial__step">Шаг {{ tutorialIndex() + 1 }} из {{ tutorialSteps.length }}</div>
+      <h3>{{ currentTutorial().title }}</h3>
+      <p>{{ currentTutorial().body }}</p>
+      <div class="tutorial__actions">
+        <button class="btn btn--ghost" type="button" (click)="prevTutorial()" [disabled]="tutorialIndex() === 0">Назад</button>
+        <button class="btn btn--primary" type="button" (click)="nextTutorial()" [disabled]="tutorialIndex() === tutorialSteps.length - 1">
+          Вперёд
+        </button>
+      </div>
+    </div>
+  </section>
+
   <section class="table">
     <h2>Пошаговый разбор</h2>
     <p class="table__lead">
@@ -107,6 +131,30 @@
       <span>{{ step.digit }}</span>
       <span class="pill" [class.pill--active]="step.doubled">{{ step.doubled ? 'Да' : 'Нет' }}</span>
       <span>{{ step.result }}</span>
+    </div>
+  </section>
+
+  <section class="sum">
+    <h2>Суммирование и проверка</h2>
+    <p class="sum__lead">
+      Складываем результаты по всем позициям (и удвоенным, и обычным), затем проверяем кратность 10.
+    </p>
+    <div class="sum__box">
+      <div class="sum__row">
+        <span class="sum__label">Сумма</span>
+        <span class="sum__expr">
+          {{ sumExpression().join(' + ') }} = <strong>{{ total() }}</strong>
+        </span>
+      </div>
+      <div class="sum__row">
+        <span class="sum__label">Проверка</span>
+        <span class="sum__expr">
+          {{ total() }} mod 10 = <strong>{{ sumRemainder() }}</strong>
+          <span class="sum__badge" [class.ok]="isValid()" [class.bad]="!isValid() && digits().length >= 12 && digits().length <= 19">
+            {{ isValid() ? 'Кратно 10' : 'Не кратно 10' }}
+          </span>
+        </span>
+      </div>
     </div>
   </section>
 

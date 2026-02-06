@@ -109,6 +109,30 @@
   letter-spacing: 0.1em;
 }
 
+.card__number--digits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  font-family: 'Space Grotesk', 'Sora', sans-serif;
+}
+
+.digit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 6px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.digit--double {
+  background: rgba(255, 106, 76, 0.35);
+}
+
+.digit__spacer {
+  width: 10px;
+}
+
 .card__meta {
   display: flex;
   justify-content: space-between;
@@ -233,6 +257,50 @@
   color: #0f5b42;
 }
 
+.tutorial {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px;
+  backdrop-filter: blur(12px);
+}
+
+.tutorial__lead {
+  margin: 0 0 12px;
+  color: var(--muted);
+}
+
+.tutorial__card {
+  padding: 18px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(13, 15, 20, 0.06);
+  display: grid;
+  gap: 10px;
+}
+
+.tutorial__step {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+}
+
+.tutorial__card h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.tutorial__card p {
+  margin: 0;
+}
+
+.tutorial__actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
 .table__controls {
   display: flex;
   align-items: center;
@@ -309,6 +377,64 @@
 
 .note p {
   margin: 0;
+}
+
+.sum {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px;
+  backdrop-filter: blur(12px);
+}
+
+.sum__lead {
+  margin: 0 0 12px;
+  color: var(--muted);
+}
+
+.sum__box {
+  padding: 16px;
+  border-radius: 16px;
+  background: rgba(248, 249, 252, 0.9);
+  border: 1px solid rgba(13, 15, 20, 0.06);
+  display: grid;
+  gap: 12px;
+}
+
+.sum__row {
+  display: grid;
+  gap: 6px;
+}
+
+.sum__label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+}
+
+.sum__expr {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.sum__badge {
+  margin-left: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  background: rgba(13, 15, 20, 0.08);
+}
+
+.sum__badge.ok {
+  background: rgba(37, 194, 139, 0.2);
+  color: #0f5b42;
+}
+
+.sum__badge.bad {
+  background: rgba(210, 75, 75, 0.18);
+  color: #8b1d1d;
 }
 
 .card::after {

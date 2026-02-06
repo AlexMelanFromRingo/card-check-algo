@@ -21,6 +21,7 @@ interface LuhnStep {
 export class AppComponent {
   rawInput = signal('');
   mode = signal<'rtl' | 'ltr'>('rtl');
+  tutorialIndex = signal(0);
 
   digits = computed(() => {
     const cleaned = this.rawInput().replace(/\D/g, '');
@@ -62,6 +63,31 @@ export class AppComponent {
     const steps = this.luhnSteps();
     return this.mode() === 'rtl' ? [...steps].reverse() : steps;
   });
+
+  sumExpression = computed(() => this.luhnSteps().map((step) => step.result));
+
+  sumRemainder = computed(() => this.total() % 10);
+
+  tutorialSteps = [
+    {
+      title: 'Шаг 1 — смотрим справа налево',
+      body: 'Последняя цифра — контрольная, но она тоже участвует в сумме.'
+    },
+    {
+      title: 'Шаг 2 — удваиваем через одну',
+      body: 'Каждую вторую цифру, считая справа, умножаем на 2.'
+    },
+    {
+      title: 'Шаг 3 — корректируем больше 9',
+      body: 'Если получилось 10–18, вычитаем 9 (это эквивалентно сумме цифр).'
+    },
+    {
+      title: 'Шаг 4 — складываем и делим на 10',
+      body: 'Складываем все результаты и проверяем, что сумма кратна 10.'
+    }
+  ];
+
+  currentTutorial = computed(() => this.tutorialSteps[this.tutorialIndex()]);
 
   total = computed(() => this.luhnSteps().reduce((sum, step) => sum + step.result, 0));
 
@@ -114,5 +140,13 @@ export class AppComponent {
 
   setMode(next: 'rtl' | 'ltr'): void {
     this.mode.set(next);
+  }
+
+  prevTutorial(): void {
+    this.tutorialIndex.set(Math.max(0, this.tutorialIndex() - 1));
+  }
+
+  nextTutorial(): void {
+    this.tutorialIndex.set(Math.min(this.tutorialSteps.length - 1, this.tutorialIndex() + 1));
   }
 }
