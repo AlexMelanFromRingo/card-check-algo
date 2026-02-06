@@ -1,4 +1,4 @@
-<div class="page">
+<div class="page" [class.theme-dark]="theme() === 'dark'">
   <header class="hero">
     <div class="hero__content">
       <p class="kicker">Алгоритм Луна (Luhn)</p>
@@ -10,6 +10,9 @@
       <div class="hero__actions">
         <button class="btn btn--primary" type="button" (click)="setExample()">Показать пример</button>
         <button class="btn btn--ghost" type="button" (click)="clear()">Очистить</button>
+        <button class="btn btn--ghost" type="button" (click)="toggleTheme()">
+          Тема: {{ theme() === 'light' ? 'Светлая' : 'Тёмная' }}
+        </button>
       </div>
     </div>
     <div class="hero__card">
@@ -18,7 +21,15 @@
         <div class="card__number card__number--digits">
           <ng-container *ngIf="digits().length > 0; else emptyDigits">
             <ng-container *ngFor="let step of luhnSteps(); index as idx">
-              <span class="digit" [class.digit--double]="step.doubled">{{ step.digit }}</span>
+              <span
+                class="digit"
+                [class.digit--double]="step.doubled"
+                [class.digit--spotlight]="hoveredIndex() === step.index"
+                (mouseenter)="setHovered(step.index)"
+                (mouseleave)="setHovered(null)"
+              >
+                {{ step.digit }}
+              </span>
               <span class="digit__spacer" *ngIf="(idx + 1) % 4 === 0"> </span>
             </ng-container>
           </ng-container>
@@ -126,7 +137,13 @@
       <span>Удваиваем?</span>
       <span>Результат</span>
     </div>
-    <div class="table__row" *ngFor="let step of displaySteps()">
+    <div
+      class="table__row"
+      *ngFor="let step of displaySteps()"
+      [class.table__row--spotlight]="hoveredIndex() === step.index"
+      (mouseenter)="setHovered(step.index)"
+      (mouseleave)="setHovered(null)"
+    >
       <span>{{ mode() === 'rtl' ? step.positionFromRight : step.positionFromLeft }}</span>
       <span>{{ step.digit }}</span>
       <span class="pill" [class.pill--active]="step.doubled">{{ step.doubled ? 'Да' : 'Нет' }}</span>
@@ -143,7 +160,11 @@
       <div class="sum__row">
         <span class="sum__label">Сумма</span>
         <span class="sum__expr">
-          {{ sumExpression().join(' + ') }} = <strong>{{ total() }}</strong>
+          <ng-container *ngFor="let value of sumExpression(); index as idx">
+            <span class="sum__term" [style.--delay]="(idx * 0.05) + 's'">{{ value }}</span>
+            <span class="sum__plus" *ngIf="idx < sumExpression().length - 1"> + </span>
+          </ng-container>
+          = <strong>{{ total() }}</strong>
         </span>
       </div>
       <div class="sum__row">

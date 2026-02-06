@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, effect, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 interface LuhnStep {
@@ -22,6 +22,8 @@ export class AppComponent {
   rawInput = signal('');
   mode = signal<'rtl' | 'ltr'>('rtl');
   tutorialIndex = signal(0);
+  theme = signal<'light' | 'dark'>('light');
+  hoveredIndex = signal<number | null>(null);
 
   digits = computed(() => {
     const cleaned = this.rawInput().replace(/\D/g, '');
@@ -142,11 +144,26 @@ export class AppComponent {
     this.mode.set(next);
   }
 
+  toggleTheme(): void {
+    this.theme.set(this.theme() === 'light' ? 'dark' : 'light');
+  }
+
+  setHovered(index: number | null): void {
+    this.hoveredIndex.set(index);
+  }
+
   prevTutorial(): void {
     this.tutorialIndex.set(Math.max(0, this.tutorialIndex() - 1));
   }
 
   nextTutorial(): void {
     this.tutorialIndex.set(Math.min(this.tutorialSteps.length - 1, this.tutorialIndex() + 1));
+  }
+
+  constructor() {
+    effect(() => {
+      const isDark = this.theme() === 'dark';
+      document.documentElement.classList.toggle('theme-dark', isDark);
+    });
   }
 }
