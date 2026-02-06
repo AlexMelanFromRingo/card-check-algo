@@ -1,0 +1,95 @@
+<div class="page">
+  <header class="hero">
+    <div class="hero__content">
+      <p class="kicker">Алгоритм Луна (Luhn)</p>
+      <h1>Проверка номера карты — честно, по шагам и без магии.</h1>
+      <p class="lead">
+        Введите номер карты (или тестовое значение) и посмотрите, как алгоритм проверяет корректность.
+        Это демонстрация — не храним данные и ничего не отправляем.
+      </p>
+      <div class="hero__actions">
+        <button class="btn btn--primary" type="button" (click)="setExample()">Показать пример</button>
+        <button class="btn btn--ghost" type="button" (click)="clear()">Очистить</button>
+      </div>
+    </div>
+    <div class="hero__card">
+      <div class="card">
+        <div class="card__chip"></div>
+        <div class="card__number">{{ formatted() || '0000 0000 0000 0000' }}</div>
+        <div class="card__meta">
+          <span>VALIDITY</span>
+          <strong>{{ isValid() ? 'VALID' : 'CHECK' }}</strong>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="panel">
+    <div class="panel__input">
+      <label for="cardNumber">Номер карты</label>
+      <input
+        id="cardNumber"
+        type="text"
+        inputmode="numeric"
+        autocomplete="off"
+        placeholder="Введите номер"
+        [ngModel]="rawInput()"
+        (ngModelChange)="onInputChange($event)"
+        maxlength="23"
+      />
+      <p class="hint">Используйте только цифры. Можно вставить с пробелами — мы их удалим.</p>
+    </div>
+
+    <div class="panel__result">
+      <div class="result">
+        <div class="result__label">Статус проверки</div>
+        <div class="result__value" [class.ok]="isValid()" [class.bad]="!isValid() && digits().length >= 12">
+          {{ digits().length < 12 ? 'Мало цифр' : (isValid() ? 'Корректен' : 'Некорректен') }}
+        </div>
+      </div>
+      <div class="result">
+        <div class="result__label">Сумма по алгоритму</div>
+        <div class="result__value">{{ total() }}</div>
+      </div>
+      <div class="result" *ngIf="checkDigit() !== null">
+        <div class="result__label">Ожидаемая контрольная цифра</div>
+        <div class="result__value">{{ checkDigit() }}</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="steps">
+    <h2>Как работает алгоритм Луна</h2>
+    <ol>
+      <li>Идём слева направо и удваиваем каждую вторую цифру. Если длина чётная — удваиваем 1-ю, 3-ю, 5-ю... Если длина нечётная — удваиваем 2-ю, 4-ю, 6-ю...</li>
+      <li>Если после удвоения получилось число больше 9, вычитаем 9.</li>
+      <li>Складываем все получившиеся числа.</li>
+      <li>Если сумма кратна 10 — номер корректен.</li>
+    </ol>
+  </section>
+
+  <section class="table">
+    <h2>Пошаговый разбор</h2>
+    <div class="table__head">
+      <span>#</span>
+      <span>Цифра</span>
+      <span>Удваиваем?</span>
+      <span>Результат</span>
+    </div>
+    <div class="table__row" *ngFor="let step of luhnSteps(); index as idx">
+      <span>{{ idx + 1 }}</span>
+      <span>{{ step.digit }}</span>
+      <span>{{ step.doubled ? 'Да' : 'Нет' }}</span>
+      <span>{{ step.result }}</span>
+    </div>
+  </section>
+
+  <section class="note">
+    <h2>Почему это работает</h2>
+    <p>
+      Алгоритм Луна добавляет «контрольную» цифру, которая зависит от остальных. Благодаря этому
+      большинство случайных ошибок ввода (перепутали цифру, пропустили символ) приводит к некратной 10 сумме.
+      Это не защита от мошенников, а быстрый способ отловить опечатки.
+    </p>
+  </section>
+</div>
