@@ -295,15 +295,15 @@
 }
 
 :root.theme-dark .steps__note {
-  background: rgba(255, 255, 255, 0.08);
-  color: #eaf1ff;
-  border-left-color: var(--accent);
+  background: rgba(255, 255, 255, 0.06);
+  color: #e5e7eb;
+  border-left-color: #a5b4fc;
 }
 
 :root.theme-dark .steps__note--muted {
-  background: rgba(255, 255, 255, 0.08);
-  color: #ffe8d0;
-  border-left-color: var(--accent-2);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fef3c7;
+  border-left-color: #fbbf24;
 }
 
 .tutorial {
@@ -379,9 +379,9 @@
 }
 
 :root.theme-dark .chip.active {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(96, 165, 250, 0.9);
-  color: #dbe9ff;
+  background: rgba(79, 70, 229, 0.3);
+  border-color: rgba(165, 180, 252, 0.9);
+  color: #e5e7eb;
 }
 
 .table__head,
@@ -426,13 +426,13 @@
 }
 
 :root.theme-dark .table__row .pill {
-  background: rgba(96, 165, 250, 0.16);
-  color: #eaf0ff;
+  background: rgba(255, 255, 255, 0.1);
+  color: #e5e7eb;
 }
 
 :root.theme-dark .table__row .pill--active {
-  background: rgba(96, 165, 250, 0.28);
-  color: #eaf0ff;
+  background: rgba(165, 180, 252, 0.28);
+  color: #0f172a;
 }
 
 .table__row:hover {
@@ -445,11 +445,11 @@
 }
 
 :root.theme-dark .table__row:hover {
-  background: rgba(96, 165, 250, 0.12);
+  background: rgba(255, 255, 255, 0.07);
 }
 
 :root.theme-dark .table__row--spotlight {
-  background: rgba(96, 165, 250, 0.22);
+  background: rgba(165, 180, 252, 0.22);
 }
 
 .table__row:last-child {
