@@ -70,7 +70,7 @@
       но правило удвоения выбираем по чётности длины, поэтому результат идентичен.
     </p>
     <ol>
-      <li>Считаем справа налево. Последняя цифра — контрольная, её мы тоже участвуем в сумме.</li>
+      <li>Считаем справа налево. Последняя цифра — контрольная, она тоже участвует в сумме.</li>
       <li>Каждую вторую цифру (через одну, считая справа) удваиваем.</li>
       <li>Если удвоение дало число больше 9, вычитаем 9 (это то же, что сложить его цифры).</li>
       <li>Складываем все числа: и удвоенные, и те, что не удваивали.</li>
@@ -80,6 +80,10 @@
       Эквивалентное правило слева направо: если длина чётная — удваиваем 1-ю, 3-ю, 5-ю…,
       если нечётная — 2-ю, 4-ю, 6-ю…
     </div>
+    <div class="steps__note steps__note--muted">
+      Длина номера банковской карты обычно 12–19 цифр. Алгоритм Луна проверяет структуру,
+      но не подтверждает реальность карты.
+    </div>
   </section>
 
   <section class="table">
@@ -87,16 +91,21 @@
     <p class="table__lead">
       Нумерация идёт слева направо для удобства чтения, но решение «удваивать или нет» соответствует счёту справа.
     </p>
+    <div class="table__controls">
+      <span>Показать порядок:</span>
+      <button class="chip" type="button" [class.active]="mode() === 'rtl'" (click)="setMode('rtl')">Справа налево</button>
+      <button class="chip" type="button" [class.active]="mode() === 'ltr'" (click)="setMode('ltr')">Слева направо</button>
+    </div>
     <div class="table__head">
       <span>#</span>
       <span>Цифра</span>
       <span>Удваиваем?</span>
       <span>Результат</span>
     </div>
-    <div class="table__row" *ngFor="let step of luhnSteps(); index as idx">
-      <span>{{ idx + 1 }}</span>
+    <div class="table__row" *ngFor="let step of displaySteps()">
+      <span>{{ mode() === 'rtl' ? step.positionFromRight : step.positionFromLeft }}</span>
       <span>{{ step.digit }}</span>
-      <span>{{ step.doubled ? 'Да' : 'Нет' }}</span>
+      <span class="pill" [class.pill--active]="step.doubled">{{ step.doubled ? 'Да' : 'Нет' }}</span>
       <span>{{ step.result }}</span>
     </div>
   </section>

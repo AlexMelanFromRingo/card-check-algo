@@ -7,6 +7,8 @@ interface LuhnStep {
   digit: number;
   doubled: boolean;
   result: number;
+  positionFromLeft: number;
+  positionFromRight: number;
 }
 
 @Component({
@@ -18,6 +20,7 @@ interface LuhnStep {
 })
 export class AppComponent {
   rawInput = signal('');
+  mode = signal<'rtl' | 'ltr'>('rtl');
 
   digits = computed(() => {
     const cleaned = this.rawInput().replace(/\D/g, '');
@@ -46,11 +49,18 @@ export class AppComponent {
         index: idx,
         digit,
         doubled: shouldDouble,
-        result
+        result,
+        positionFromLeft: idx + 1,
+        positionFromRight: digits.length - idx
       });
     });
 
     return steps;
+  });
+
+  displaySteps = computed(() => {
+    const steps = this.luhnSteps();
+    return this.mode() === 'rtl' ? [...steps].reverse() : steps;
   });
 
   total = computed(() => this.luhnSteps().reduce((sum, step) => sum + step.result, 0));
@@ -100,5 +110,9 @@ export class AppComponent {
 
   onInputChange(value: string): void {
     this.rawInput.set(value);
+  }
+
+  setMode(next: 'rtl' | 'ltr'): void {
+    this.mode.set(next);
   }
 }
