@@ -285,21 +285,25 @@
   background: rgba(37, 99, 235, 0.14);
   color: #0f2a5f;
   font-size: 14px;
+  border-left: 4px solid var(--accent);
 }
 
 .steps__note--muted {
   background: rgba(249, 115, 22, 0.16);
   color: #5a2a00;
+  border-left-color: var(--accent-2);
 }
 
 :root.theme-dark .steps__note {
-  background: rgba(96, 165, 250, 0.26);
-  color: #e5edff;
+  background: rgba(255, 255, 255, 0.08);
+  color: #eaf1ff;
+  border-left-color: var(--accent);
 }
 
 :root.theme-dark .steps__note--muted {
-  background: rgba(251, 146, 60, 0.24);
+  background: rgba(255, 255, 255, 0.08);
   color: #ffe8d0;
+  border-left-color: var(--accent-2);
 }
 
 .tutorial {
@@ -375,9 +379,9 @@
 }
 
 :root.theme-dark .chip.active {
-  background: rgba(96, 165, 250, 0.28);
-  border-color: rgba(96, 165, 250, 0.6);
-  color: #e8f1ff;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(96, 165, 250, 0.9);
+  color: #dbe9ff;
 }
 
 .table__head,
