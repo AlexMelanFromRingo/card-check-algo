@@ -99,8 +99,8 @@
 }
 
 :root.theme-dark .card {
-  background: linear-gradient(135deg, #131830 0%, #1e2d55 60%, #273c6a 100%);
-  color: #e2e7f2;
+  background: linear-gradient(135deg, #161d30 0%, #1e2d50 100%);
+  color: #eceef2;
 }
 
 .card__chip {
@@ -142,15 +142,15 @@
 }
 
 :root.theme-dark .digit {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 :root.theme-dark .digit--double {
-  background: rgba(107, 140, 255, 0.4);
+  background: rgba(91, 124, 255, 0.35);
 }
 
 :root.theme-dark .digit--spotlight {
-  box-shadow: 0 0 0 2px rgba(107, 140, 255, 0.6);
+  box-shadow: 0 0 0 2px rgba(91, 124, 255, 0.5);
 }
 
 .digit__spacer {
@@ -246,11 +246,11 @@
 }
 
 :root.theme-dark .result__value.ok {
-  color: #3dd598;
+  color: #34c77b;
 }
 
 :root.theme-dark .result__value.bad {
-  color: #f47272;
+  color: #ef6b6b;
 }
 
 .steps,
@@ -295,14 +295,14 @@
 }
 
 :root.theme-dark .steps__note {
-  background: rgba(107, 140, 255, 0.1);
-  color: #b8c6ff;
+  background: rgba(91, 124, 255, 0.12);
+  color: #c4ccff;
   border-left-color: var(--accent);
 }
 
 :root.theme-dark .steps__note--muted {
-  background: rgba(240, 165, 69, 0.1);
-  color: #f5d5a0;
+  background: rgba(240, 152, 72, 0.10);
+  color: #f5d0a0;
   border-left-color: var(--accent-2);
 }
 
@@ -379,9 +379,9 @@
 }
 
 :root.theme-dark .chip.active {
-  background: rgba(107, 140, 255, 0.18);
-  border-color: rgba(107, 140, 255, 0.5);
-  color: #b8c6ff;
+  background: rgba(91, 124, 255, 0.15);
+  border-color: rgba(91, 124, 255, 0.4);
+  color: #c4ccff;
 }
 
 .table__head,
@@ -426,13 +426,13 @@
 }
 
 :root.theme-dark .table__row .pill {
-  background: rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.06);
   color: var(--muted);
 }
 
 :root.theme-dark .table__row .pill--active {
-  background: rgba(107, 140, 255, 0.18);
-  color: #b8c6ff;
+  background: rgba(91, 124, 255, 0.15);
+  color: #c4ccff;
 }
 
 .table__row:hover {
@@ -445,11 +445,11 @@
 }
 
 :root.theme-dark .table__row:hover {
-  background: rgba(107, 140, 255, 0.06);
+  background: rgba(91, 124, 255, 0.06);
 }
 
 :root.theme-dark .table__row--spotlight {
-  background: rgba(107, 140, 255, 0.14);
+  background: rgba(91, 124, 255, 0.12);
 }
 
 .table__row:last-child {
@@ -532,13 +532,13 @@
 }
 
 :root.theme-dark .sum__badge.ok {
-  background: rgba(61, 213, 152, 0.2);
-  color: #a8f0d4;
+  background: rgba(52, 199, 123, 0.15);
+  color: #8ae8b8;
 }
 
 :root.theme-dark .sum__badge.bad {
-  background: rgba(244, 114, 114, 0.2);
-  color: #fcc4c4;
+  background: rgba(239, 107, 107, 0.15);
+  color: #f5a8a8;
 }
 
 .card::after {
@@ -551,8 +551,8 @@
 }
 
 :root.theme-dark .card::after {
-  background: radial-gradient(180px 180px at 20% 20%, rgba(107, 140, 255, 0.15), transparent 60%);
-  opacity: 0.7;
+  background: radial-gradient(180px 180px at 20% 20%, rgba(91, 124, 255, 0.12), transparent 60%);
+  opacity: 0.6;
 }
 
 .card:hover {
