@@ -2,22 +2,60 @@
 
 :root {
   color-scheme: light;
+
   --bg: #f4f1ec;
   --bg-2: #e7eefc;
   --ink: #0a0b0f;
   --muted: #4d5867;
-  --accent: #2563eb; /* blue primary */
-  --accent-2: #f97316; /* amber secondary */
-  --accent-3: #22c55e; /* green success */
+  --accent: #2563eb;
+  --accent-2: #f97316;
+  --accent-3: #22c55e;
+
   --card: rgba(255, 255, 255, 0.92);
   --surface: rgba(248, 249, 252, 0.95);
   --border: rgba(13, 15, 20, 0.12);
   --shadow: 0 30px 60px rgba(10, 11, 15, 0.14);
   --radius: 24px;
+
+  /* Credit card visual */
+  --card-grad: linear-gradient(135deg, #111827 0%, #3b4b7f 100%);
+  --card-ink: #fff;
+  --card-glow: radial-gradient(160px 160px at 20% 20%, rgba(255, 255, 255, 0.22), transparent 60%);
+  --card-glow-opacity: 0.7;
+
+  /* Digit highlights on card */
+  --digit-double: rgba(255, 106, 76, 0.35);
+  --digit-spot: rgba(255, 255, 255, 0.35);
+
+  /* Status */
+  --ok: #1f8f4d;
+  --bad: #d24b4b;
+
+  /* Accent-tinted backgrounds and text */
+  --accent-tint: rgba(37, 99, 235, 0.14);
+  --accent-tint-strong: rgba(37, 99, 235, 0.22);
+  --accent-tint-ink: #0f2a5f;
+  --accent-tint-border: rgba(37, 99, 235, 0.6);
+  --accent-2-tint: rgba(249, 115, 22, 0.16);
+  --accent-2-tint-ink: #5a2a00;
+
+  /* Pills */
+  --pill-bg: rgba(37, 99, 235, 0.1);
+
+  /* Table row highlights */
+  --row-hover: rgba(37, 99, 235, 0.08);
+  --row-spot: rgba(37, 99, 235, 0.16);
+
+  /* Sum badges */
+  --badge-ok-bg: rgba(37, 194, 139, 0.26);
+  --badge-ok-ink: #0a4a37;
+  --badge-bad-bg: rgba(210, 75, 75, 0.24);
+  --badge-bad-ink: #7b1717;
 }
 
 :root.theme-dark {
   color-scheme: dark;
+
   --bg: #09090f;
   --bg-2: #0e0e16;
   --ink: #f4f4f8;
@@ -25,10 +63,39 @@
   --accent: #6d8cff;
   --accent-2: #f5a623;
   --accent-3: #3ecf8e;
+
   --card: rgba(22, 22, 31, 0.96);
   --surface: rgba(31, 31, 42, 0.96);
   --border: rgba(255, 255, 255, 0.14);
   --shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+
+  --card-grad: linear-gradient(135deg, #151525 0%, #1e2850 100%);
+  --card-ink: #f4f4f8;
+  --card-glow: radial-gradient(180px 180px at 20% 20%, rgba(109, 140, 255, 0.10), transparent 60%);
+  --card-glow-opacity: 0.5;
+
+  --digit-double: rgba(109, 140, 255, 0.35);
+  --digit-spot: rgba(109, 140, 255, 0.5);
+
+  --ok: #3ecf8e;
+  --bad: #f87171;
+
+  --accent-tint: rgba(109, 140, 255, 0.14);
+  --accent-tint-strong: rgba(109, 140, 255, 0.20);
+  --accent-tint-ink: #e0e6ff;
+  --accent-tint-border: rgba(109, 140, 255, 0.45);
+  --accent-2-tint: rgba(245, 166, 35, 0.12);
+  --accent-2-tint-ink: #fff3e0;
+
+  --pill-bg: rgba(255, 255, 255, 0.06);
+
+  --row-hover: rgba(109, 140, 255, 0.06);
+  --row-spot: rgba(109, 140, 255, 0.12);
+
+  --badge-ok-bg: rgba(62, 207, 142, 0.18);
+  --badge-ok-ink: #b8f5d8;
+  --badge-bad-bg: rgba(248, 113, 113, 0.18);
+  --badge-bad-ink: #fcc8c8;
 }
 
 * {
