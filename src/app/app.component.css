@@ -99,8 +99,8 @@
 }
 
 :root.theme-dark .card {
-  background: linear-gradient(135deg, #161d30 0%, #1e2d50 100%);
-  color: #eceef2;
+  background: linear-gradient(135deg, #151525 0%, #1e2850 100%);
+  color: #f4f4f8;
 }
 
 .card__chip {
@@ -146,11 +146,11 @@
 }
 
 :root.theme-dark .digit--double {
-  background: rgba(91, 124, 255, 0.35);
+  background: rgba(109, 140, 255, 0.35);
 }
 
 :root.theme-dark .digit--spotlight {
-  box-shadow: 0 0 0 2px rgba(91, 124, 255, 0.5);
+  box-shadow: 0 0 0 2px rgba(109, 140, 255, 0.5);
 }
 
 .digit__spacer {
@@ -246,11 +246,11 @@
 }
 
 :root.theme-dark .result__value.ok {
-  color: #34c77b;
+  color: #3ecf8e;
 }
 
 :root.theme-dark .result__value.bad {
-  color: #ef6b6b;
+  color: #f87171;
 }
 
 .steps,
@@ -295,14 +295,14 @@
 }
 
 :root.theme-dark .steps__note {
-  background: rgba(91, 124, 255, 0.12);
-  color: #c4ccff;
+  background: rgba(109, 140, 255, 0.14);
+  color: #e0e6ff;
   border-left-color: var(--accent);
 }
 
 :root.theme-dark .steps__note--muted {
-  background: rgba(240, 152, 72, 0.10);
-  color: #f5d0a0;
+  background: rgba(245, 166, 35, 0.12);
+  color: #fff3e0;
   border-left-color: var(--accent-2);
 }
 
@@ -379,9 +379,9 @@
 }
 
 :root.theme-dark .chip.active {
-  background: rgba(91, 124, 255, 0.15);
-  border-color: rgba(91, 124, 255, 0.4);
-  color: #c4ccff;
+  background: rgba(109, 140, 255, 0.18);
+  border-color: rgba(109, 140, 255, 0.45);
+  color: #e0e6ff;
 }
 
 .table__head,
@@ -431,8 +431,8 @@
 }
 
 :root.theme-dark .table__row .pill--active {
-  background: rgba(91, 124, 255, 0.15);
-  color: #c4ccff;
+  background: rgba(109, 140, 255, 0.18);
+  color: #e0e6ff;
 }
 
 .table__row:hover {
@@ -445,11 +445,11 @@
 }
 
 :root.theme-dark .table__row:hover {
-  background: rgba(91, 124, 255, 0.06);
+  background: rgba(109, 140, 255, 0.06);
 }
 
 :root.theme-dark .table__row--spotlight {
-  background: rgba(91, 124, 255, 0.12);
+  background: rgba(109, 140, 255, 0.12);
 }
 
 .table__row:last-child {
@@ -532,13 +532,13 @@
 }
 
 :root.theme-dark .sum__badge.ok {
-  background: rgba(52, 199, 123, 0.15);
-  color: #8ae8b8;
+  background: rgba(62, 207, 142, 0.18);
+  color: #b8f5d8;
 }
 
 :root.theme-dark .sum__badge.bad {
-  background: rgba(239, 107, 107, 0.15);
-  color: #f5a8a8;
+  background: rgba(248, 113, 113, 0.18);
+  color: #fcc8c8;
 }
 
 .card::after {
@@ -551,8 +551,8 @@
 }
 
 :root.theme-dark .card::after {
-  background: radial-gradient(180px 180px at 20% 20%, rgba(91, 124, 255, 0.12), transparent 60%);
-  opacity: 0.6;
+  background: radial-gradient(180px 180px at 20% 20%, rgba(109, 140, 255, 0.10), transparent 60%);
+  opacity: 0.5;
 }
 
 .card:hover {
